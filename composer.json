@@ -11,6 +11,7 @@
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
+        "sentry/sentry-laravel": "^2.12",
         "spatie/laravel-query-builder": "^5.0"
     },
     "require-dev": {
@@ -25,7 +26,9 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Domains\\": "app/Domain",
+            "Infrastructure\\": "app/Infrastructure"
         }
     },
     "autoload-dev": {

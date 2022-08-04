@@ -2,18 +2,26 @@
 
 namespace App\Application\Exceptions;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class FormValidationException extends ValidationException
 {
-    public function __construct(public $validator, $response = null, $errorBag = 'default')
+    public $status = ResponseAlias::HTTP_OK;
+
+    /**
+     * @param Validator $validator
+     * @param ResponseAlias $response
+     * @param string $errorBag
+     */
+    public function __construct(public $validator, $response = null, string $errorBag = 'default')
     {
         parent::__construct($validator);
 
         $this->response = $response;
         $this->errorBag = $errorBag;
-        $this->validator = $validator;
     }
 
     public function render(): JsonResponse

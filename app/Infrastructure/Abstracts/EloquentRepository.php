@@ -9,7 +9,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Cache;
 use Ramsey\Uuid\Uuid;
 
-class EloquentRepository implements BaseRepository
+abstract class EloquentRepository implements BaseRepository
 {
     /**
      * @var bool
